@@ -47,5 +47,7 @@ public class Game extends JFrame implements KeyListener{
             Data.setUp(bool);
         if(e.getKeyCode()==KeyEvent.VK_DOWN||e.getKeyCode()==KeyEvent.VK_S)
             Data.setDown(bool);
+        if(e.getKeyCode()==KeyEvent.VK_SPACE)
+            Data.setSpace(bool);
     }
 }
