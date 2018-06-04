@@ -1,4 +1,4 @@
-import java.awt.*;
+import java.awt.Graphics;
 
 public interface Movable {
     void paint(Graphics g);

@@ -37,6 +37,8 @@ public class Board extends JPanel implements ActionListener{
 
     public static void addEntity(Entity e){toAdd.add(e);}
 
+    public static ArrayList<Entity> getEntities(){return entities;}
+
     private void paintEntities(Graphics g){
         if(Data.isGamePlay()) {
             for (Entity entity : entities) {
