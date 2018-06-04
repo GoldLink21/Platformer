@@ -7,6 +7,8 @@ public class Data {
     private static boolean right,left,up,down;
 
     private final static boolean debug=true;
+    
+    private static int x=0,y=0;
 
     public static void setDown(boolean down) {Data.down = down;}
     public static void setRight(boolean right) {Data.right = right;}
@@ -14,6 +16,11 @@ public class Data {
     public static void setUp(boolean up) {Data.up = up;}
 
     public static void setMenu(byte num){menu=num;}
+    
+    public static void setX(int num){x=num;}
+    public static void setY(int num){y=num;}
+    public static void changeX(int dx){x+=dx;}
+    public static void changeY(int dy){y+=dy;}
 
     public static boolean isRight() {return right;}
     public static boolean isLeft() {return left;}
