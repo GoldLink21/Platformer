@@ -4,7 +4,7 @@ public class Data {
 
     private static byte menu=MENU_MAIN;
 
-    private static boolean right,left,up,down;
+    private static boolean right,left,up,down,space;
 
     private final static boolean debug=true;
     
@@ -14,6 +14,7 @@ public class Data {
     public static void setRight(boolean right) {Data.right = right;}
     public static void setLeft(boolean left) {Data.left = left;}
     public static void setUp(boolean up) {Data.up = up;}
+    public static void setSpace(boolean space){Data.space = space;}
 
     public static void setMenu(byte num){menu=num;}
     
@@ -26,6 +27,7 @@ public class Data {
     public static boolean isLeft() {return left;}
     public static boolean isUp() {return up;}
     public static boolean isDown() {return down;}
+    public static boolean isSpace(){return space;}
 
     public static int getMenu(){return menu;}
 
