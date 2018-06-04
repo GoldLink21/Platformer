@@ -5,7 +5,7 @@ public abstract class Entity implements Movable{
     BufferedImage img;
     int x,y,width,height;
     private boolean remove;
-    Color color;
+    private Color color;
 
     Entity(int x,int y,int width,int height,String file){
         setPosition(x,y);
@@ -35,6 +35,15 @@ public abstract class Entity implements Movable{
         g.setColor(Color.BLACK);
         g.drawRect(x,y,width,height);
     }
+
+    void defaultImage(Graphics g){
+        g.drawImage((img).getScaledInstance(width,height,Image.SCALE_SMOOTH),x,y,null);
+    }
+
+    int getX(){return x;}
+    int getY(){return y;}
+    int getWidth(){return width;}
+    int getHeight(){return height;}
 
     @Override
     public void move(){}
