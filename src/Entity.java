@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 
 public abstract class Entity implements Movable{
     BufferedImage img;
-    int x,y,width,height;
+    int x,y,width,height,dx=0,dy=0;
     private boolean remove;
     private Color color;
 
@@ -25,7 +25,7 @@ public abstract class Entity implements Movable{
 
     boolean toRemove(){return remove;}
 
-    private Rectangle getBounds(){return new Rectangle(x,y,width,height);}
+    public Rectangle getBounds(){return new Rectangle(x,y,width,height);}
 
     boolean collidesWith(Entity other){ return getBounds().intersects(other.getBounds());}
 
@@ -40,6 +40,19 @@ public abstract class Entity implements Movable{
         g.drawImage((img).getScaledInstance(width,height,Image.SCALE_SMOOTH),x,y,null);
     }
 
+    boolean onScreen(){
+        return(pointOnScreen(x,y)||pointOnScreen(x+width,y+height));
+    }
+
+    private boolean pointOnScreen(int x,int y){
+        if(x>=(-Data.BOARD_SIZE/2)+Data.getX()&&x<=(Data.BOARD_SIZE/2)+Data.getX()){
+            if(y>=(-Data.BOARD_SIZE/2)+Data.getY()&&y<=(Data.BOARD_SIZE/2)+Data.getY()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     int getX(){return x;}
     int getY(){return y;}
     int getWidth(){return width;}
@@ -50,7 +63,7 @@ public abstract class Entity implements Movable{
 
     @Override
     public void setPosition(int x,int y){
-        this.x=x;
-        this.y=y;
+        this.x=x+Data.BOARD_SIZE/2;
+        this.y=y+Data.BOARD_SIZE/2;
     }
 }

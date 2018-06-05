@@ -13,13 +13,14 @@ public class Board extends JPanel implements ActionListener{
 
     Board(){
         setBackground(Color.LIGHT_GRAY);
-        setPreferredSize(new Dimension(500,500));
+        setPreferredSize(new Dimension(Data.BOARD_SIZE,Data.BOARD_SIZE));
         newGame();
     }
 
     private void newGame(){
         Timer timer=new Timer(1000/60,this);
         timer.start();
+        addEntity(new Player(0,0));
     }
 
     private void addEntities(){

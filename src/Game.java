@@ -32,9 +32,8 @@ public class Game extends JFrame implements KeyListener{
     public void keyReleased(KeyEvent e) {
         setKeys(e,false);
 
-        if(e.getKeyCode()==KeyEvent.VK_ENTER){
-            Data.setMenu(Data.MENU_GAME);
-            System.out.println(Data.getMenu());
+        if(e.getKeyCode()==KeyEvent.VK_ENTER&&Data.isMainMenu()){
+            Data.setMenu(Data.Menus.MAIN);
         }
     }
 

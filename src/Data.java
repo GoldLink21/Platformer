@@ -1,8 +1,12 @@
 public class Data {
 
-    static final byte MENU_MAIN=0,MENU_GAME=1,MENU_END=2,MENU_PAUSE=3;
+    public enum Menus{
+        MAIN,GAME,END,PAUSE
+    }
 
-    private static byte menu=MENU_MAIN;
+    final static int BOARD_SIZE=500;
+
+    private static Menus menu=Menus.MAIN;
 
     private static boolean right,left,up,down,space;
 
@@ -16,7 +20,7 @@ public class Data {
     public static void setUp(boolean up) {Data.up = up;}
     public static void setSpace(boolean space){Data.space = space;}
 
-    public static void setMenu(byte num){menu=num;}
+    public static void setMenu(Menus val){menu=val;}
     
     public static void setX(int num){x=num;}
     public static void setY(int num){y=num;}
@@ -29,12 +33,14 @@ public class Data {
     public static boolean isDown() {return down;}
     public static boolean isSpace(){return space;}
 
-    public static int getMenu(){return menu;}
+    public static Menus getMenu(){return menu;}
+    public static int getX(){return x;}
+    public static int getY(){return y;}
 
-    public static boolean isMainMenu(){return menu==MENU_MAIN;}
-    public static boolean isGamePlay(){return menu==MENU_GAME;}
-    public static boolean isGamePaused(){return menu==MENU_PAUSE;}
-    public static boolean isGameEnd(){return menu==MENU_END;}
+    public static boolean isMainMenu(){return menu==Menus.MAIN;}
+    public static boolean isGamePlay(){return menu==Menus.GAME;}
+    public static boolean isGamePaused(){return menu==Menus.PAUSE;}
+    public static boolean isGameEnd(){return menu==Menus.END;}
 
     public static void debugPrint(String s){
         if(debug)
